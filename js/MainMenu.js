@@ -17,6 +17,30 @@ class MainMenu extends Phaser.Scene
         this.load.audio('tpOut','teleport_out.wav');
         this.load.audio('confirm','confirm.mp3');
 
+        // Preload CharacterSelect assets during intro
+        this.load.setPath('assets/img');
+        this.load.image('CharacterSelect','CharacterSelect.png');
+        this.load.image('CharacterSelectCursor','CharacterSelectCursor.png');
+        this.load.image('BossIntroBG','BossIntroBG.png');
+        this.load.image('Q','Q.png');
+        this.load.image('U','U.png');
+        this.load.image('I','I.png');
+        this.load.image('C','C.png');
+        this.load.image('K','K.png');
+        this.load.image('M','M.png');
+        this.load.image('A','A.png');
+        this.load.image('N','N.png');
+        this.load.image('bg_back','background_back.png');
+        this.load.image('bg_frontal','background_frontal.png');
+        this.load.image('QuickManIntroPose', 'QuickManDropPose.png');
+        this.load.spritesheet('QuickManDrop', 'QuickManDrop.png', {frameWidth: 29, frameHeight: 31});
+
+        this.load.setPath('assets/sounds');
+        this.load.audio('cursorMove','cursor_move.wav');
+        this.load.audio('stageSelect','stageSelect.mp3');
+        this.load.audio('error','error.mp3');
+        this.load.audio('loadIn','stageSelectIntro.mp3');
+
         this.load.once('complete', this.create, this);
         this.skipped = false;
         this.isInIntro = true;
@@ -134,13 +158,13 @@ class MainMenu extends Phaser.Scene
                 this.building = this.add.image(0,0,'CityBuilding').setOrigin(0,0.652);
                 this.playerIdle = this.add.sprite(195,-357,'TitleIdle',0).setOrigin(0,0);
                 this.playerIdle.anims.play('TitleIdle',true);
-                this.MoveBackdrop(140,6000,this.playerIdle,false);
-                this.MoveBackdrop(400,6000,this.backdrop,false);
-                this.MoveBackdrop(500,6000,this.building,false);
+                this.MoveBackdrop(140,3000,this.playerIdle,false);
+                this.MoveBackdrop(400,3000,this.backdrop,false);
+                this.MoveBackdrop(500,3000,this.building,false);
                 setTimeout(() => {
                     this.CreateMenu();
                     this.menuCreateSkip = true;
-                },6500);
+                },3500);
             },22250));    
         } 
     
