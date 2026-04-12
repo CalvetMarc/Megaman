@@ -45,16 +45,12 @@ class CharacterSelect extends Phaser.Scene
         this.load.audio('confirm','confirm.mp3');
     }
     create(){
-        this.scale.scaleMode = Phaser.Scale.ScaleModes.NEAREST;
-        this.cameras.main.setZoom(4);
-        
         const backgroundMusic = this.sound.add('stageSelect', { loop: true });
         backgroundMusic.play();
         this.textures.each(function (texture) {
             texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
         });
         this.cameras.main.setBounds(0, 0, 256, 256);
-        this.cameras.main.setViewport(0, 0, this.game.config.width*4, this.game.config.height*4);
         this.background = this.add.image(0,0,'CharacterSelect').setOrigin(0,0);
         this.bgCursor = this.add.image(this.CursorPosition.x,this.CursorPosition.y,'CharacterSelectCursor').setOrigin(0,0);
         //this.bossIntro = this.add.sprite(0,0,'QuickManIntro').setOrigin(0,0);

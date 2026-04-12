@@ -398,17 +398,11 @@ class megaman_map extends Phaser.Scene
         this.currentFollowTargetIndex = 0;
         this.cameras.main.startFollow(this.transitionObject, false, 0.05, 0.05);
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
-        this.cameras.main.setViewport(0, 0, this.game.config.width*4, this.game.config.height*4);
-
         this.hitEffect = this.add.sprite(100,100,'HitEffects').setOrigin(0);
         this.hitEffect.setVisible(false);
         //this.quickManBoss.anims.play('QuickManDrop', true);
-        const zoomFactor = 4; //4
         this.healthUI = this.add.sprite(2,2,'healthUI',this.player.health)
         .setOrigin(0);
-        
-        this.scale.scaleMode = Phaser.Scale.ScaleModes.NEAREST;
-        this.cameras.main.setZoom(zoomFactor);
         
         this.textures.each(function (texture) {
             texture.setFilter(Phaser.Textures.FilterMode.NEAREST);

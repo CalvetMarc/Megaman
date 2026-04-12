@@ -33,15 +33,10 @@ class MainMenu extends Phaser.Scene
         
         this.graphics = this.add.graphics();
         
-        this.scale.scaleMode = Phaser.Scale.ScaleModes.NEAREST;
-        this.cameras.main.setZoom(4);
-        
-       
         this.textures.each(function (texture) {
             texture.setFilter(Phaser.Textures.FilterMode.NEAREST);
         });
         this.cameras.main.setBounds(0, 0, 256, 256);
-        this.cameras.main.setViewport(0, 0, this.game.config.width*4, this.game.config.height*4);
         
         this.input.keyboard.on('keydown-ENTER', () => {
             if (this.isInIntro) {
@@ -79,81 +74,63 @@ class MainMenu extends Phaser.Scene
             this.titleScreen.anims.play('loadIn',true);
 
             this.timeoutIds.push(setTimeout(() => {
-                
                 this.titleScreen.anims.play('loadOut',true);
-            },5000));
+            },2500));
             this.timeoutIds.push(setTimeout(() => {
-                
                 this.titleScreen.setTint(0x000000);
-                
-            },5500));
+            },3000));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.clearTint();
                 this.titleScreen.anims.play('secondLoadIn',true);
-                
-            },7000));
+            },3500));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.anims.play('secondTextLoadIn',true);
-                
-            },7250));
+            },3750));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.anims.play('secondTextLoadOut',true);
-                
-            },12500));
+            },6750));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.setFrame(5);
-                
-            },13000));
+            },7250));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.anims.play('thirdTextLoadIn',true);
-                
-            },13250));
+            },7500));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.anims.play('thirdTextLoadOut',true);
-                
-            },18250));
+            },10500));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.setFrame(5);
-                
-            },18750));
+            },11000));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.anims.play('fourthTextLoadIn',true);
-                
-            },19250));
+            },11250));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.anims.play('fourthTextLoadOut',true);
-                
-            },24250));
+            },14250));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.setFrame(5);
-                
-            },24750));
+            },14750));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.anims.play('fifthTextLoadIn',true);
-                
-            },25750));
+            },15000));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.anims.play('fifthTextLoadOut',true);
-                
-            },30750));
+            },18000));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.setFrame(5);
-                
-            },31250));
+            },18500));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.anims.play('sixthTextLoadIn',true);
-                
-            },31750));
+            },18750));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.anims.play('sixthTextLoadOut',true);
-                
-            },36750));
+            },21750));
             this.timeoutIds.push(setTimeout(() => {
                 this.titleScreen.setFrame(5);
                 this.titleScreen.setTint(0x000000);
                 this.backdrop = this.add.image(0,100,'CityBackrop').setOrigin(0,0.487);
                 this.building = this.add.image(0,0,'CityBuilding').setOrigin(0,0.652);
-                this.playerIdle = this.add.sprite(195,-357,'TitleIdle',0).setOrigin(0,0); 
+                this.playerIdle = this.add.sprite(195,-357,'TitleIdle',0).setOrigin(0,0);
                 this.playerIdle.anims.play('TitleIdle',true);
                 this.MoveBackdrop(140,6000,this.playerIdle,false);
                 this.MoveBackdrop(400,6000,this.backdrop,false);
@@ -161,8 +138,8 @@ class MainMenu extends Phaser.Scene
                 setTimeout(() => {
                     this.CreateMenu();
                     this.menuCreateSkip = true;
-                },6500); 
-            },37250));    
+                },6500);
+            },22250));    
         } 
     
     }
