@@ -41,6 +41,60 @@ class MainMenu extends Phaser.Scene
         this.load.audio('error','error.mp3');
         this.load.audio('loadIn','stageSelectIntro.mp3');
 
+        // Preload all megaman_map assets upfront
+        this.load.setPath('assets/maps');
+        this.load.image('megaman_tileset','megaman_tileset.png');
+        this.load.tilemapTiledJSON('megaman_map','megaman_map.json');
+
+        this.load.setPath('assets/img');
+        this.load.image('bullet','spr_bullet_0.png');
+        this.load.spritesheet('playerIdle', 'idleAnim.png', {frameWidth: 21, frameHeight: 24});
+        this.load.spritesheet('playerHurt', 'playerHurt.png', {frameWidth: 26, frameHeight: 28});
+        this.load.spritesheet('playerIdleShoot', 'idleShoot.png', {frameWidth: 31, frameHeight: 24});
+        this.load.spritesheet('playerWalk', 'walkAnim.png', {frameWidth: 24, frameHeight: 24});
+        this.load.spritesheet('playerWalkShoot', 'walkShootAnim.png', {frameWidth: 30, frameHeight: 24});
+        this.load.spritesheet('playerJump', 'jump.png', {frameWidth: 26, frameHeight: 30});
+        this.load.spritesheet('playerJumpShoot', 'jumpShoot.png', {frameWidth: 29, frameHeight: 24});
+        this.load.spritesheet('springEnemy', 'springEnemyBase.png', {frameWidth: 16, frameHeight: 8});
+        this.load.spritesheet('springEnemyCharge', 'SpringEnemy.png', {frameWidth: 16, frameHeight: 24});
+        this.load.spritesheet('enemyFireSingle', 'singleFire.png', {frameWidth: 44, frameHeight: 36});
+        this.load.spritesheet('enemyFireIdle', 'enemyFire2idle.png', {frameWidth: 44, frameHeight: 36});
+        this.load.spritesheet('enemyFireAttack', 'enemyFire2attack2.png', {frameWidth: 44, frameHeight: 36});
+        this.load.spritesheet('springEnemyBullet', 'springEnemyProjectile.png', {frameWidth: 11, frameHeight: 16});
+        this.load.spritesheet('fireEnemyBullet', 'enemyFireBullet.png', {frameWidth: 16, frameHeight: 16});
+        this.load.spritesheet('fireEnemyBulletSingle', 'fireBulletSingle.png', {frameWidth: 16, frameHeight: 16});
+        this.load.spritesheet('healthUI','barraVida.png', {frameWidth:9, frameHeight:58});
+        this.load.spritesheet('healthUIboss','quickmanVidaCharge.png', {frameWidth:9, frameHeight:58});
+        this.load.spritesheet('deathAnim','deathAnim.png', {frameWidth:24, frameHeight:24});
+        this.load.spritesheet('launcherDamageHit', 'launcherEnemyAttack.png', {frameWidth: 24, frameHeight: 32});
+        this.load.spritesheet('launcherIdle', 'launcherEnemyFirst.png', {frameWidth: 24, frameHeight: 32});
+        this.load.spritesheet('RWJump', 'RWjumpAnim.png', {frameWidth: 46, frameHeight: 64});
+        this.load.spritesheet('RWLand', 'RWlandAnim.png', {frameWidth: 46, frameHeight: 64});
+        this.load.spritesheet('RWidle', 'idleRW.png', {frameWidth: 46, frameHeight: 64});
+        this.load.spritesheet('RWoutIdle', 'idleRWout.png', {frameWidth: 24, frameHeight: 24});
+        this.load.spritesheet('RWoutShoot', 'shootingRWout.png', {frameWidth: 24, frameHeight: 24});
+        this.load.spritesheet('RWoutBullet', 'bulletRWout.png', {frameWidth: 8, frameHeight: 8});
+        this.load.spritesheet('quickmanJump', 'QuickManDropPose.png', {frameWidth: 26, frameHeight: 38});
+        this.load.spritesheet('quickmanShoot', 'QuickManDropPoseShoot.png', {frameWidth: 28, frameHeight: 38});
+        this.load.spritesheet('quickmanRun', 'quickmanRun.png', {frameWidth: 24, frameHeight: 31});
+        this.load.spritesheet('quickmanStart', 'quickmanStart.png', {frameWidth: 29, frameHeight: 31});
+        this.load.spritesheet('quickmanBullet', 'quickmanBoomerang.png', {frameWidth: 8, frameHeight: 8});
+        this.load.spritesheet('quickmanBulletSingle', 'quickmanBoomerangSingle.png', {frameWidth: 8, frameHeight: 8});
+        this.load.spritesheet('HitEffects', 'HitEffects.png', {frameWidth: 32, frameHeight: 14});
+        this.load.spritesheet('door', 'PortaPujar.png', {frameWidth: 16, frameHeight: 64});
+        this.load.image('laserBeam','laser.png');
+
+        this.load.setPath('assets/sounds');
+        this.load.audio('shootSound', 'playerShoot.mp3');
+        this.load.audio('bgMusic', 'bgMusic.mp3');
+        this.load.audio('hit', 'hit.wav');
+        this.load.audio('laser', 'force_beam.wav');
+        this.load.audio('land', 'land.wav');
+        this.load.audio('door', 'boss_door.wav');
+        this.load.audio('enemyHit', 'enemy_hit.wav');
+        this.load.audio('death','death.wav');
+        this.load.audio('bossMusic','bossBattle.mp3');
+
         this.load.once('complete', this.create, this);
         this.skipped = false;
         this.isInIntro = true;
