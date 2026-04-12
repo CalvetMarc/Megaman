@@ -52,8 +52,8 @@ class CharacterSelect extends Phaser.Scene
         });
         this.cameras.main.setBounds(0, 0, 256, 256);
         this.background = this.add.image(0,0,'CharacterSelect').setOrigin(0,0);
+        this.selecting = false;
         this.bgCursor = this.add.image(this.CursorPosition.x,this.CursorPosition.y,'CharacterSelectCursor').setOrigin(0,0);
-        //this.bossIntro = this.add.sprite(0,0,'QuickManIntro').setOrigin(0,0);
         this.flashTween = this.tweens.add({
             targets: this.bgCursor,
             alpha: 0,
@@ -67,11 +67,12 @@ class CharacterSelect extends Phaser.Scene
         });
 
         this.input.keyboard.on('keydown-ENTER', (event) => {
-            if (event.repeat) {
-                return; 
+            if (event.repeat || this.selecting) {
+                return;
             }
-        
+
             if (this.CursorPosition.x === 168 && this.CursorPosition.y === 24) {
+                this.selecting = true;
                 this.startBossAnim();
                 this.sound.play('confirm');
             }

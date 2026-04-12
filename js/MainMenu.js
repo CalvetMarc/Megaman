@@ -38,12 +38,14 @@ class MainMenu extends Phaser.Scene
         });
         this.cameras.main.setBounds(0, 0, 256, 256);
         
-        this.input.keyboard.on('keydown-ENTER', () => {
+        const skipIntro = () => {
             if (this.isInIntro) {
-                this.isInIntro = !this.isInIntro;
+                this.isInIntro = false;
                 this.skipped = true;
             }
-        });
+        };
+        this.input.keyboard.on('keydown', skipIntro);
+        this.input.on('pointerdown', skipIntro);
 
         this.input.keyboard.on('keydown-ENTER', () => {
             if (this.inMenu) {
