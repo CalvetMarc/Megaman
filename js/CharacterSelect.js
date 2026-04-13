@@ -22,6 +22,7 @@ class CharacterSelect extends Phaser.Scene
         // All assets already preloaded in MainMenu
     }
     create(){
+        this.sound.stopAll();
         const backgroundMusic = this.sound.add('stageSelect', { loop: true });
         backgroundMusic.play();
         this.textures.each(function (texture) {

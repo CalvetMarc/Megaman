@@ -324,10 +324,7 @@ class character extends Phaser.GameObjects.Sprite {
         this.scene.player.setVisible(false);
         this.scene.player.body.enable = false;
 
-        const backgroundMusic = this.scene.sound.get('bgMusic');
-        if (backgroundMusic && backgroundMusic.isPlaying) {
-            backgroundMusic.stop();
-        }
+        this.scene.sound.stopAll();
         this.scene.healthUI.setFrame(29);
         setTimeout(() => {
             this.scene.player.body.reset(this.respawnX, this.respawnY);
@@ -335,7 +332,10 @@ class character extends Phaser.GameObjects.Sprite {
             this.scene.updateHealth();
             this.scene.player.setVisible(true);
             this.scene.player.body.enable = true;
-            backgroundMusic.play();
+            const bgMusic = this.scene.sound.get('bgMusic');
+            if (bgMusic) {
+                bgMusic.play();
+            }
         }, 3000);
     }
 }

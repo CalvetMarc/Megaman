@@ -111,6 +111,7 @@ class megaman_map extends Phaser.Scene
             new Phaser.Math.Vector2(1151, 3965), //16
             new Phaser.Math.Vector2(1225, 3965), //17
         ];
+        this.sound.stopAll();
         const backgroundMusic = this.sound.add('bgMusic', { loop: true });
         backgroundMusic.play();
         this.map = this.add.tilemap('megaman_map');
